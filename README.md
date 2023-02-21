@@ -3,7 +3,7 @@ Desafio: Realizará consultas no banco de dados com o TypeORM de três maneiras.
 
 Abrir projeto com VSCode Online:
 
-https://github1s.com/MyIgnite/CRUD-nodejs
+https://github1s.com/MyIgnite/database-query
 
 Clone o projeto, navegue até a raiz do projeto e execute:</br>
 
@@ -18,3 +18,24 @@ Execute o comando para testar a aplicação </br>
 - [x] should be able find a game by entire or partial given titl
 - [x] should be able to get the total count of game
 - [x] should be able to list users who have given game i
+
+
+## UsersRepository.ts
+
+A função busca um usuário com seus jogos relacionados a partir de um ID de usuário `user id`. A buscar é realizada usando o ORM que retorna os usuários com os jogos relacionados. 
+
+```js
+async findUserWithGamesById({
+    user_id,
+  }: IFindUserWithGamesDTO): Promise<User> {
+    // Complete usando ORM
+    const userWithGames = await this.repository.findOneOrFail({
+      relations: ["games"],
+      where: {
+        id: user_id
+      }
+    });
+
+    return userWithGames;
+  }
+```
