@@ -84,3 +84,13 @@ async findByTitleContaining(param: string): Promise<Game[]> {
     .getMany()
 }
 ```
+
+O método conta todos os jogos da tabela `games`.
+A busca é realizada com a funcionalidade `query` do TypeORM, em outras palavras, a consulta é feita de forma bruta diretamente no banco de dados.
+
+```js
+async countAllGames(): Promise<[{ count: string }]> {
+  // Complete usando raw query
+  return this.repository.query('SELECT COUNT(id) FROM games'); 
+}
+```
