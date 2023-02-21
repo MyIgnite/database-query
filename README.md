@@ -68,3 +68,19 @@ async findUserByFullName({
   return users; 
 }
 ```
+
+## GamesRepository.ts
+
+O métodos busca títulos de jogos que contêm parte de uma seguência de letras.
+A busca é realizada com funcionalidade do TypeORM para construir a consulta.
+
+```js
+async findByTitleContaining(param: string): Promise<Game[]> {
+  // Complete usando query builder
+  // Buscar um game que contêm parte de uma seguência de letras
+  return this.repository
+    .createQueryBuilder()
+    .where("title ILIKE :title", {title: `%${param}%`})
+    .getMany()
+}
+```
