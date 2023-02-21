@@ -19,7 +19,6 @@ Execute o comando para testar a aplicação </br>
 - [x] should be able to get the total count of game
 - [x] should be able to list users who have given game i
 
-
 ## UsersRepository.ts
 
 O método busca um usuário com seus jogos relacionados a partir de um ID de usuário `user id`. A buscar é realizada usando o ORM que retorna os usuários com os jogos relacionados. 
@@ -40,8 +39,6 @@ async findUserWithGamesById({
   }
 ```
 
-## findAllUsersOrderedByFirstName
-
 O método busca todos os usuários com ordem crecente.
 A consulta é do tipo puro, ou seja, através de uma string sem utilizar métodos ou sintaxes espefíficas de um ORM ou biblioteca de bando de dados.
 
@@ -53,8 +50,6 @@ async findAllUsersOrderedByFirstName(): Promise<User[]> {
   return users;
   }
 ```
-
-## findUserByFullName
 
 O método retorna todos os usuários, independente da capitalização de sues nomes.
 Por exemplo, nomes como "JoSé", "Maria", "JoÃo" serão incluídos nos resultados.
