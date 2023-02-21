@@ -53,3 +53,23 @@ async findAllUsersOrderedByFirstName(): Promise<User[]> {
   return users;
   }
 ```
+
+## findUserByFullName
+
+O método retorna todos os usuários, independente da capitalização de sues nomes.
+Por exemplo, nomes como "JoSé", "Maria", "JoÃo" serão incluídos nos resultados.
+
+```js
+async findUserByFullName({
+  first_name,
+  last_name,
+}: IFindUserByFullNameDTO): Promise<User[] | undefined> {
+  // Complete usando raw query
+  // Retornar usuário que possua first_name e last_name
+  // Ignorar caixa alta
+
+  const query = "SELECT * FROM users WHERE LOWER(first_name) = LOWER($1) AND LOWER(last_name) = LOWER($2)";
+  const users = await this.repository.query(query, [first_name, last_name])
+  return users; 
+}
+```
