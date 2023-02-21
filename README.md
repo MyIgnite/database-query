@@ -94,3 +94,17 @@ async countAllGames(): Promise<[{ count: string }]> {
   return this.repository.query('SELECT COUNT(id) FROM games'); 
 }
 ```
+
+O métodos retornar todos os usuários associados a um jogo específico por meio de um parâmetro `id`.
+A busca é realizaza cin funcionalidades do TypeORM. A relação entre as entidades `Game` e `User` é definida pelo método `relation` e `of` é usado para especificar o `id` do jogo.
+
+```js
+async findUsersByGameId(id: string): Promise<User[]> {
+  // Complete usando query builder
+  return this.repository
+    .createQueryBuilder()
+    .relation(Game, "users")
+    .of(id)
+    .loadMany();
+}
+```
