@@ -22,7 +22,7 @@ Execute o comando para testar a aplicação </br>
 
 ## UsersRepository.ts
 
-A função busca um usuário com seus jogos relacionados a partir de um ID de usuário `user id`. A buscar é realizada usando o ORM que retorna os usuários com os jogos relacionados. 
+O método busca um usuário com seus jogos relacionados a partir de um ID de usuário `user id`. A buscar é realizada usando o ORM que retorna os usuários com os jogos relacionados. 
 
 ```js
 async findUserWithGamesById({
@@ -37,5 +37,19 @@ async findUserWithGamesById({
     });
 
     return userWithGames;
+  }
+```
+
+## findAllUsersOrderedByFirstName
+
+O método busca todos os usuários com ordem crecente.
+A consulta é do tipo puro, ou seja, através de uma string sem utilizar métodos ou sintaxes espefíficas de um ORM ou biblioteca de bando de dados.
+
+```js
+async findAllUsersOrderedByFirstName(): Promise<User[]> {
+  // Complete usando raw query
+  const query = "SELECT * FROM users ORDER BY first_name ASC";
+  const users = await this.repository.query(query);
+  return users;
   }
 ```
