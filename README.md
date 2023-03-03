@@ -1,23 +1,41 @@
 # database-query
 Desafio: Realizará consultas no banco de dados com o TypeORM de três maneiras.
 
+- Usando o ORM
+- Usando Query Builder
+- Usando Raw Query
+
 Abrir projeto com VSCode Online:
 
 https://github1s.com/MyIgnite/database-query
 
-Clone o projeto, navegue até a raiz do projeto e execute:</br>
+<br/>
+
+Para que os testes funcionem, você precisa criar uma database no Postgres chamada "queries_challenge" e atualizar as informações de autenticação no arquivo "ormconfig.json" para se conectarem corretamente ao banco de dados.
+
+![ormconfig.json](/image.png "ormconfig.json")
+
+<br/>
+
+> Observações: Caso queira testar o projeto em um ambiente Windows, consulte a documentação do Docker, pois o projeto foi originalmente criado em um ambiente WSL Linux Ubuntu. Você pode encontrar mais informações sobre como executar o projeto em um ambiente Windows utilizando o Docker na documentação correspondente. [Documentação docker](https://docs.docker.com/) 
+
+<br/>
+
+Caso não tenha um container do Docker rodando o Postgres, é possível criá-lo com seguinte comando:
+
+`docker run --name ignite-challenge-database-queries -e POSTGRES_DB=queries_challenge -e POSTGRES_PASSWORD=docker -p 5000:5432 -d postgres`
+
+O resultado é a construção de um container de nome "ignite-challenge-database-queries" usando uma imagem "postgres".
+
+![ormconfig.json](/terminal.png "ormconfig.json")
+
+Com o projeto clonado, navegue até a raiz do projeto e execute:</br>
 
 `yarn` </br>
 
 Execute o comando para testar a aplicação </br>
 `yarn test` </br> </br>
 
-- [x] should be able to find user with games list by user's ID
-- [x] should be able to list users ordered by first nam
-- [x] should be able to find user by full nam
-- [x] should be able find a game by entire or partial given titl
-- [x] should be able to get the total count of game
-- [x] should be able to list users who have given game i
 
 ## UsersRepository.ts
 
